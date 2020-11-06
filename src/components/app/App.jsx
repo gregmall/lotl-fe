@@ -1,5 +1,12 @@
 import React from 'react';
+import AddCharacter from './character/addCharacter';
+import store from '../../store.js';
+import { Provider } from 'react-redux';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Provider store={store}>
+        <AddCharacter />
+    </Provider>
+  );
 }
