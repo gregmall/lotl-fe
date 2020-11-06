@@ -1,8 +1,9 @@
-import { ADD_CHARACTER, SET_LOADING } from '../actions/characterActions';
+import { ADD_CHARACTER, SET_CHARACTERS, SET_LOADING, SET_DETAIL } from '../actions/characterActions';
 
 const initialState = {
   characters: [],
-  loading: false
+  loading: false,
+  detail: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -11,6 +12,10 @@ export default function reducer(state = initialState, action) {
       return {...state, character: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload };
+    case SET_CHARACTERS:
+      return {...state, characters: action.payload };
+    case SET_DETAIL:
+      return {...state, detail: action.payload}
   
     default:
       return state;
