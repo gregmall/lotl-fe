@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharactersById } from '../../actions/characterActions';
 import { useParams } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'
 
 const DetailDisplay = () => {
   const { id } = useParams();
@@ -24,10 +24,12 @@ const DetailDisplay = () => {
   return (
 
     <div>
-    <p>{detail.name}</p>
-    <img src={detail.image} />
-    <p>{detail.species}</p>
-    <p>{detail.actor}</p>
+      <p>{detail.name}</p>
+      <img src={detail.image} />
+      <p>{detail.species}</p>
+      <p>{detail.actor}</p>
+      <Link to = {"/"}><button>Go Back</button></Link>
+      <Link to = {`/update/${id}`}><button>Update?</button></Link>
     </div>
 
     

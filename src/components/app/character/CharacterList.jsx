@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharacters } from '../../../actions/characterActions';
 import { Link } from 'react-router-dom';
+import AddCharacter from './addCharacter';
 
 
 const CharacterList = () => {
@@ -26,11 +27,15 @@ const CharacterList = () => {
   ));
 
   return (
+    <div>
+      <header>
+      <AddCharacter />
+      </header>
     <ul>
       {characterElements}
     </ul>
-  );
-
-
+ 
+  </div>
+ );
 };
 export default CharacterList;

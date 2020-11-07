@@ -1,4 +1,4 @@
-import { getCharacters, getCharactersById, postCharacter } from '../services/charactersApi'; 
+import { getCharacters, getCharactersById, postCharacter, updateCharacter } from '../services/charactersApi'; 
 
 export const ADD_CHARACTER = 'ADD_CHARACTER';
 export const addCharacter = character => ({
@@ -24,6 +24,12 @@ export const setDetail = detail => ({
   payload: detail
 });
 
+export const SET_UPDATE = 'SET_UPDATE'
+export const setUpdate = detail => ({
+  type: SET_UPDATE,
+  payload: detail
+})
+
 export const createCharacter = character => dispatch => {
   postCharacter(character)
   .then(createdCharacter =>{
@@ -45,6 +51,8 @@ export const fetchCharactersById = id => dispatch => {
       dispatch(setDetail(character))
       
     })
-    .then(console.log);
+    
    
 };
+
+

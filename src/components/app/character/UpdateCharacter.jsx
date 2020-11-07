@@ -1,14 +1,20 @@
-import React from 'react';
+import React from 'react'
+import AddCharacter from './addCharacter';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { createCharacter } from '../../../actions/characterActions';
+import {  useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-const AddCharacter = () => {
+import { updateCharacter } from '../../../services/charactersApi';
+
+ const UpdateCharacter = () => {
+  const { id } = useParams();
+
+  const detail = useSelector(state => state.character.detail);
+  console.log(detail)
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [species, setSpecies] = useState('');
   const [actor, setActor] = useState('');
-  const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
     if(target.name ==='name') setName(target.value);
@@ -17,26 +23,25 @@ const AddCharacter = () => {
     if(target.name ==='actor') setActor(target.value);
 
   }
-
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(createCharacter({
-      name,
-      image,
-      species,
-      actor
+    updateCharacter(id, {
+      name: this.state.name,
+      image: this.state.image,
+      species: this.state.species,
+      actor: this.state.actor
+    })
+    this.props.history.push('/');
 
-    }));
-    setName('');
-    setImage('');
-    setSpecies('');
-    setActor('');
+    
   }
 
 
 
-  return(
-    <header>
+ return(
+   <section>
+   <div>
+   <header>
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name: </label>
       <input
@@ -44,7 +49,7 @@ const AddCharacter = () => {
         type="text"
         name="name"
         value={name}
-        placeHolder={name}
+        placeholder={detail.name}
         onChange={handleChange}
        /> 
        <label htmlFor="name">Image URL: </label>
@@ -53,6 +58,7 @@ const AddCharacter = () => {
         type="url"
         name="image"
         value={image}
+        placeholder={detail.image}
         onChange={handleChange}
        /> 
        <label htmlFor="name">Species: </label>
@@ -61,6 +67,7 @@ const AddCharacter = () => {
         type="text"
         name="species"
         value={species}
+        placeholder={detail.species}
         onChange={handleChange}
        /> 
        <label htmlFor="name">Actor: </label>
@@ -69,20 +76,17 @@ const AddCharacter = () => {
         type="text"
         name="actor"
         value={actor}
+        placeholder={detail.actor}
         onChange={handleChange}
        /> 
-       <button>ADD CHARACTER</button>
+       <button>UPDATE</button>
 
         </form>
         </header>
-  )
+  </div>
 
+  </section>
 
-
-
-};
-
-export default AddCharacter;
-
-
-
+ )
+}
+ export default UpdateCharacter;

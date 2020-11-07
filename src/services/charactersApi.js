@@ -31,3 +31,12 @@ export const getCharactersById = async(id) => {
   if(!res.ok) throw json;
   return json;
 }
+
+export const updateCharacter = (id, character) => {
+  return fetch(`${URL}/api/v1/characters/${id}`, {
+    method: 'PUT',
+    headers: { 'Content_Type': 'application/json' },
+    body: JSON.stringify(character),
+  })
+  .then(res => res.json())
+}

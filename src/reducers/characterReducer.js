@@ -15,7 +15,8 @@ export default function reducer(state = initialState, action) {
     case SET_CHARACTERS:
       return {...state, characters: action.payload };
     case SET_DETAIL:
-      return {...state, detail: action.payload}
+      return {...state, detail: action.payload};
+   
   
     default:
       return state;

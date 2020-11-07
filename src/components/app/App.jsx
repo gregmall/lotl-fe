@@ -5,18 +5,22 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import { Provider } from 'react-redux';
+
 import CharacterList from './character/CharacterList';
 import Detail from '../detail/Detail';
+import UpdateCharacter from './character/UpdateCharacter';
+
 
 
 export default function App() {
   return (
    <div>
      <Router>
+      
        <Switch>
         <Route exact path ="/" component = {CharacterList} />
         <Route exact path ="/detail/:id" component = {Detail}/>
+        <Route exact path ="/update/:id" component = {UpdateCharacter}/>
         
         </Switch>
       </Router>
