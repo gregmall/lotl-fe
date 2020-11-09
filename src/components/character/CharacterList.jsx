@@ -1,14 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCharacters } from '../../../actions/characterActions';
+import { fetchCharacters } from '../../actions/characterActions';
 import { Link } from 'react-router-dom';
 import AddCharacter from './addCharacter';
+import styles from './CharacterList.css';
 
 
 const CharacterList = () => {
   const characters = useSelector(state => state.character.characters);
-  console.log(characters)
   const dispatch = useDispatch();
 
   useEffect(() =>{
@@ -17,25 +17,23 @@ const CharacterList = () => {
 
   const characterElements = characters.map(character => (
     <Link to = {`/detail/${character.id}`}>
-    <li key={character.id}>
-      <p>{character.name}</p>
-      <img src={character.image} />
-      <p>{character.species}</p>
-      <p>{character.actor}</p>
-    </li>
+      <li key={character.id} className = {styles.listItem}>
+        <p>{character.name}</p>
+        <img src={character.image} />
+      </li>
     </Link>
   ));
 
   return (
-    <div>
+    <div className={styles.CharacterList}>
       <header>
-      <AddCharacter />
+        <AddCharacter />
       </header>
-    <ul data-testid="characters">
-      {characterElements}
-    </ul>
+      <ul data-testid="characters">
+        {characterElements}
+      </ul>
  
-  </div>
+    </div>
  );
 };
 export default CharacterList;
