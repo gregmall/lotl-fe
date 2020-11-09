@@ -1,0 +1,35 @@
+.CharacterList{
+  header{
+    background-color: rgb(198, 161, 233);
+    height: 145px;
+    padding-left: 10px;
+    input{
+      margin: 5px;
+    }
+    
+  }
+  ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+    img{
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      background-color: rgb(78, 21, 143);
+    }
+  }
+}
+.listItem{
+  border-radius: 6px;
+  background-color: rgb(117, 117, 212);
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 350px;
+
+}

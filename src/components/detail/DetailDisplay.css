@@ -1,0 +1,32 @@
+.DetailDisplay{
+  text-align: center;
+  width: 300px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+  
+ 
+
+}
+.displaySection{
+  color: aqua;
+  background-color: rgb(58, 46, 88);
+  border-radius: 6px;
+  width: 400px;
+  justify-content: center;;
+  align-items: center;
+  button{
+    padding: 5px;
+    margin: 5px;
+  }
+  img{
+    border-radius: 6px;
+    padding: 10px;
+    background-color: aqua;
+  }
+}
