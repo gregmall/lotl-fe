@@ -1,8 +1,11 @@
 .CharacterList{
   header{
     background-color: rgb(198, 161, 233);
-    height: 140px;
+    height: 145px;
     padding-left: 10px;
+    input{
+      margin: 5px;
+    }
     
   }
   ul{

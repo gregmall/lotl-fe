@@ -26,13 +26,13 @@ const DetailDisplay = () => {
   return (
 
     <div className={styles.DetailDisplay}>
-      <section>
-        <p>{detail.name}</p>
+      <section className={styles.displaySection}>
+        <p>Name: {detail.name}</p>
         <img src={detail.image} />
-        <p>{detail.species}</p>
-        <p>{detail.actor}</p>
-        <Link to = {"/"}><button>Go Back</button></Link>
-        <Link to = {`/update/${id}`}><button>Update?</button></Link>
+        <p>Species: {detail.species}</p>
+        <p>Portrayed by: {detail.actor}</p>
+        <Link to = {"/"}><button>GO BACK</button></Link>
+        <Link to = {`/update/${id}`}><button>UPDATE?</button></Link>
         <button value ={detail.id} onClick={handleDelete}>DELETE CHARACTER</button>
       </section>
 

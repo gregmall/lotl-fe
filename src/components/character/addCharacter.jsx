@@ -29,6 +29,7 @@ const AddCharacter = () => {
       actor
 
     }));
+    alert('New character added! ! Refresh page to see new character!');
     history.push('/');
     setName('');
     setImage('');

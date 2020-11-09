@@ -59,7 +59,7 @@ import { updateCharacter } from '../../services/charactersApi';
             value={image}
             placeholder={detail.image}
             onChange={handleChange}
-          /> 
+          /> <br/>
           <label htmlFor="name">Species: </label>
           <input
             id="species"
@@ -77,7 +77,7 @@ import { updateCharacter } from '../../services/charactersApi';
             value={actor}
             placeholder={detail.actor}
             onChange={handleChange}
-          /> 
+          /> <br/>
           
           <button>UPDATE</button>
           <Link to = {"/"}><button>Go Back</button></Link>
