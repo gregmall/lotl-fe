@@ -17,7 +17,7 @@ const CharacterList = () => {
 
   const characterElements = characters.map(character => (
     <Link to = {`/detail/${character.id}`}>
-    <li key={character.name}>
+    <li key={character.id}>
       <p>{character.name}</p>
       <img src={character.image} />
       <p>{character.species}</p>
@@ -31,7 +31,7 @@ const CharacterList = () => {
       <header>
       <AddCharacter />
       </header>
-    <ul>
+    <ul data-testid="characters">
       {characterElements}
     </ul>
  

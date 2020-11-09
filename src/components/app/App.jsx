@@ -9,12 +9,14 @@ import {
 import CharacterList from './character/CharacterList';
 import Detail from '../detail/Detail';
 import UpdateCharacter from './character/UpdateCharacter';
-
+import { Provider } from 'react-redux';
+import store from '../../store';
 
 
 export default function App() {
   return (
    <div>
+     <Provider store ={store}>
      <Router>
       
        <Switch>
@@ -24,6 +26,7 @@ export default function App() {
         
         </Switch>
       </Router>
+      </Provider>
     </div>
   );
 }
