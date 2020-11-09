@@ -32,16 +32,21 @@ export const getCharactersById = async(id) => {
   return json;
 }
 
-export const updateCharacter = (id, character) => {
-  console.log(id)
-  console.log( character)
-  return fetch(`${URL}/api/v1/characters/${id}`, {
+export const updateCharacter = async(id, character) => {
+  
+  const res = await fetch(`${URL}/api/v1/characters/${id}`, {
     method: 'PUT',
-    headers: { 'Content_Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(character)
-  })
-  .then(res => res.json())
-}
+  });
+
+  const json = await res.json();
+  if(!res.ok) throw json;
+  
+  return json;
+};
 
 export const deleteCharacter = id => {
   return fetch(`${URL}/api/v1/characters/${id}`, {
