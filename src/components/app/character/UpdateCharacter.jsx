@@ -1,5 +1,5 @@
 import React from 'react'
-import AddCharacter from './addCharacter';
+
 import { useState } from 'react';
 import {  useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -25,13 +25,14 @@ import { updateCharacter } from '../../../services/charactersApi';
   }
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(detail)
     updateCharacter(id, {
-      name: this.state.name,
-      image: this.state.image,
-      species: this.state.species,
-      actor: this.state.actor
+      name: name,
+      image: image,
+      species: species,
+      actor: actor
     })
-    this.props.history.push('/');
+    // this.props.history.push('/');
 
     
   }

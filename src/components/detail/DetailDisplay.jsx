@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCharactersById } from '../../actions/characterActions';
+import { fetchCharactersById, removeCharacter } from '../../actions/characterActions';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
@@ -18,6 +18,9 @@ const DetailDisplay = () => {
   }, []);
   console.log(detail)
   
+  const handleDelete = ({ target }) => {
+    dispatch(removeCharacter(target.value));
+  };
   
   
 
@@ -30,6 +33,8 @@ const DetailDisplay = () => {
       <p>{detail.actor}</p>
       <Link to = {"/"}><button>Go Back</button></Link>
       <Link to = {`/update/${id}`}><button>Update?</button></Link>
+      <button value ={detail.id} onClick={handleDelete}>DELETE CHARACTER</button>
+
     </div>
 
     

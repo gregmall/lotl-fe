@@ -1,4 +1,4 @@
-import { ADD_CHARACTER, SET_CHARACTERS, SET_LOADING, SET_DETAIL } from '../actions/characterActions';
+import { ADD_CHARACTER, SET_CHARACTERS, SET_LOADING, SET_DETAIL, DELETE_CHARACTER } from '../actions/characterActions';
 
 const initialState = {
   characters: [],
@@ -16,8 +16,11 @@ export default function reducer(state = initialState, action) {
       return {...state, characters: action.payload };
     case SET_DETAIL:
       return {...state, detail: action.payload};
-   
-  
+    case DELETE_CHARACTER:
+      return {
+        ...state,
+        characters: state.characters.filter(character => character.id !== action.payload)
+      };
     default:
       return state;
   };

@@ -33,10 +33,20 @@ export const getCharactersById = async(id) => {
 }
 
 export const updateCharacter = (id, character) => {
+  console.log(id)
+  console.log( character)
   return fetch(`${URL}/api/v1/characters/${id}`, {
     method: 'PUT',
     headers: { 'Content_Type': 'application/json' },
-    body: JSON.stringify(character),
+    body: JSON.stringify(character)
+  })
+  .then(res => res.json())
+}
+
+export const deleteCharacter = id => {
+  return fetch(`${URL}/api/v1/characters/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content_Type': 'application/json' }
   })
   .then(res => res.json())
 }
